@@ -1,0 +1,49 @@
+### 1. **Preparazione dell'Ambiente**
+   - **Installazione di Node.js**: Assicurati di avere Node.js installato sul tuo computer.
+   - **Crea una nuova directory**: Questa sarà la cartella del tuo progetto.
+   - **Inizializza il progetto**: Apri un terminale, naviga nella directory del progetto e esegui `npm init` per creare un `package.json`.
+
+### 2. **Strutturazione del Progetto**
+   - **Crea file e cartelle principali**:
+     - `index.js`: File principale dove inizierà l'esecuzione del tuo gioco.
+     - `Start.txt`: Contiene la storia introduttiva.
+     - `Rooms.txt`: Descrizioni delle stanze.
+     - `EndWin.txt`, `EndDead.txt`, `EndLose.txt`: Testi per le diverse conclusioni del gioco.
+     - `/modules`: Una cartella per organizzare i moduli come stanza, giocatore, mostro, ecc.
+
+### 3. **Implementazione delle Basi**
+   - **Leggi i file di testo**: Implementa la lettura di `Start.txt` e `Rooms.txt` all'avvio del gioco.
+   - **Creazione delle Classi/Moduli**:
+     - `Player`: Gestisce inventario, posizione e azioni del giocatore.
+     - `Room`: Rappresenta stanze individuali, collegamenti e contenuti.
+     - `Monster`: Dettagli e logica per Medusa e Dracula.
+     - `Item`: Per oggetti come scudo, pugnale e tesori.
+
+### 4. **Logica di Gioco**
+   - **Mappatura e Navigazione**:
+     - Definisci la mappa del castello e come le stanze sono collegate.
+     - Implementa la logica per muoversi tra le stanze.
+   - **Interazioni**:
+     - Implementa i comandi `MOVE`, `PICK`, `DROP`, `EXIT`, `ATTACK`, `LOOK`.
+     - Gestisci gli oggetti che il giocatore può raccogliere o lasciare.
+     - Definisci come i mostri interagiscono con il giocatore.
+
+### 5. **Gestione degli Eventi**
+   - **Combattimenti**: Definisci cosa succede quando il giocatore attacca un mostro.
+   - **Vittoria/Sconfitta**: Stabilisci come il giocatore può vincere o perdere il gioco.
+
+### 6. **Test e Debug**
+   - **Test Manuale**: Gioca al tuo gioco, cercando errori e assicurandoti che tutto funzioni come previsto.
+   - **Debug**: Usa strumenti di debug o `console.log` per tracciare e risolvere problemi.
+
+### 7. **Raffinamento e Aggiunte**
+   - **Migliora l'UI**: Rendi l'interfaccia utente amichevole e accattivante.
+   - **Aggiungi dettagli**: Potresti voler aggiungere più descrizioni, oggetti o logica complessa.
+
+### 8. **Documentazione e Pulizia del Codice**
+   - **Commenta il tuo codice**: Assicurati che sia chiaro cosa fa ogni parte del tuo codice.
+   - **Refactoring**: Ristruttura il codice per efficienza e leggibilità.
+
+### 9. **Test Finale e Rilascio**
+   - **Test Completo**: Assicurati che tutti i percorsi possibili siano testati.
+   - **Condividi il tuo gioco**: Pubblicalo su GitHub o condividilo con amici e colleghi.

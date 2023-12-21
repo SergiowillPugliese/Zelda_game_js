@@ -1,0 +1,93 @@
+**Zelda Game**
+La principessa del regno di CPeria è stata catturata da un malvagio stregone e rinchiusa in un 
+castello custodito da mostri. Il tuo compito è liberarla e riportarla fuori dal castello. 
+Il castello ha 9 stanze. Il gioco inizia con te in piedi nella stanza 1. La stanza 1 ha l'uscita 
+dal castello a ovest. Alcune delle stanze sono collegate tra loro. Ogni stanza ha un muro a nord, 
+sud, est o ovest o un'altra stanza (vedi labirinto sotto). La principessa è imprigionata nella stanza 9. 
+Ci sono due mostri nel castello che devono essere uccisi per raggiungere la principessa. 
+Ogni mostro custodisce un sentiero magico e ogni volta che uccidi un mostro, compare questo 
+sentiero e due stanze vengono collegate. Fortunatamente, i mostri sono piuttosto docili e 
+non ti attaccano a meno che tu non li attacchi.
+
+Il primo mostro che devi uccidere è la signora dalle teste di serpente della mitologia greca, affettuosamente 
+chiamata Medusa da alcuni. È così bella che chiunque la veda si trasforma in pietra. 
+Il trucco per ucciderla è attaccarla con uno scudo magico. Puoi trovarlo nella stanza 3. 
+Medusa vedrà il proprio riflesso nello scudo e si trasformerà in pietra. 
+Appena muore, compare un percorso che ti permetterà di esplorare le stanze 7 e 8.
+
+Il secondo mostro è il signor Dracula. 
+Per sconfiggerlo, devi attaccarlo con un pugnale d'argento direttamente nel cuore. 
+Puoi trovarlo nella stanza 7 mentre Dracula è nella stanza 6. 
+Egli custodisce una porta che si apre nella stanza 9 quando viene ucciso. 
+Uccidendolo, devi raggiungere la principessa e condurla all'uscita una volta fatto ciò.
+
+Ci sono oggetti del tesoro sparsi per tutto il castello per chi è interessato dal punto di vista finanziario. 
+Poiché porti con te una borsa, puoi mettere tutti gli oggetti che raccogli durante il gioco 
+(il tesoro, il pugnale e lo scudo magico) in quella borsa. La borsa può contenere al massimo 10 oggetti alla volta. 
+Il tesoro è di tre tipi. C'è un uovo d'oro nella stanza 2 e un calice d'oro nella stanza 4. 
+Nella stanza 8, c'è un pezzo di carta con la prova del famoso problema irrisolto P=NP. 
+L'uovo d'oro e il calice d'oro valgono mezzo milione di dollari ciascuno; 
+mentre la carta della prova vale un milione di dollari. Sfortunatamente non ci sono acquirenti per lo scudo 
+e il pugnale, quindi non hanno un particolare valore nel mercato nero di OOPtopia.
+
+Una volta che un oggetto viene preso, puoi lasciarlo cadere in qualsiasi stanza se vuoi. 
+Se un mostro viene attaccato senza l'arma con cui può essere ucciso nella tua borsa, morirai. 
+Se esci dal castello senza liberare la principessa, perderai il gioco.
+
+
+
+MAPPA: https://github.com/tomorrowdevs-projects/programming-basics/blob/main/projects/m6/004-zelda-game/i.png
+
+
+**Requisiti del Progetto**
+Il tuo progetto consiste nell'implementare questo gioco. Ecco alcuni requisiti che devono essere implementati.
+Il gioco dovrebbe iniziare narrando la storia in due o tre righe. Questa storia dovrebbe essere presente in un file
+chiamato Start.txt.
+
+L'utente dovrebbe inserire tutte le mosse come comandi di testo. I comandi validi sono MOVE, PICK, DROP, EXIT,
+ATTACK, LOOK.
+
+Il comando MOVE dovrebbe prendere la direzione in cui l'utente vuole muoversi come secondo parametro. Le direzioni
+possono essere NORD, SUD, EST o OVEST. Ad esempio, inserendo il comando MOVE EST nella stanza 1, l'utente dovrebbe
+spostarsi nella stanza 2.
+
+Se c'è un muro su un lato, dovrebbe essere visualizzato un messaggio che informa l'utente che la mossa non è
+possibile. Ad esempio, MOVE EST è un comando non valido.
+
+Ogni volta che l'utente si sposta nella nuova stanza, dovrebbe essere visualizzata una breve descrizione della
+stanza. La descrizione di tutte le stanze dovrebbe essere presente in un file chiamato Rooms.txt, che deve essere
+letto all'inizio del programma e memorizzato in memoria.
+
+Dopo la descrizione della stanza, dovrebbero essere visualizzate tutte le uscite possibili dalla stanza.
+Se ci sono oggetti nella stanza, dovrebbero essere visualizzati dopo l'elenco delle uscite. Non possono esserci più
+di 5 oggetti in una stanza.
+
+Se c'è un mostro nella stanza, il suo nome dovrebbe essere visualizzato dopo l'elenco degli oggetti. Una stanza può
+contenere al massimo un mostro. Ad esempio, se un utente entra in una stanza con una porta a est e ovest, il pugnale
+e Medusa (viva), la descrizione sarà la seguente:
+Questa stanza ha forme strane disegnate su tutte le pareti e torce traballanti rendono i volti ancora più
+spaventosi. C'è una porta a est. C'è una porta a ovest. Il pugnale è sul pavimento. Medusa ti sta aspettando per
+ucciderti accanto a una porta chiusa.
+
+Il comando PICK dovrebbe accettare l'oggetto da raccogliere come secondo parametro. Ad esempio, nell'esempio sopra,
+se l'utente digita il comando PICK DAGA, dovrebbe rimuovere il pugnale dalla stanza, aggiungere il pugnale alla
+borsa dell'utente e visualizzare un messaggio sullo schermo. Non dovrebbe essere consentito raccogliere qualcosa che
+non è nella stanza.
+
+Il comando DROP dovrebbe accettare anche l'oggetto da depositare dalla borsa dell'utente nella stanza corrente.
+Il comando EXIT dovrebbe chiudere il programma.
+Il comando ATTACK dovrebbe attaccare il mostro nella stanza (se ce n'è uno). Se l'arma con cui il mostro può essere
+ucciso è nella borsa, il mostro dovrebbe morire. Altrimenti dovrebbe uccidere l'utente. In caso di morte per mano
+del mostro, il gioco dovrebbe finire dopo aver visualizzato tutto il testo in un file chiamato EndDead.txt sullo
+schermo.
+
+La morte di un mostro dovrebbe creare un collegamento tra due stanze e il suo corpo dovrebbe rimanere a terra.
+Medusa sta sorvegliando il collegamento tra la stanza 5 e la stanza 8. Dracula sta sorvegliando il collegamento tra
+la stanza 6 e la stanza 9.
+
+Il comando LOOK dovrebbe stampare la descrizione della stanza, inclusi tutti gli oggetti e le porte nella stanza.
+Se l'utente esce dal castello dopo aver salvato la principessa, dovrebbe essere visualizzato il testo in un file
+chiamato EndWin.txt e il gioco dovrebbe finire.
+
+Se l'utente esce dal castello senza aver salvato la principessa, dovrebbe essere visualizzato il testo in un file
+chiamato EndLose.txt e il gioco dovrebbe finire.
