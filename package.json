@@ -2,11 +2,20 @@
   "name": "zelda_game",
   "version": "1.0.0",
   "description": "Gioco zelda. Salva la principessa liberandola dal labirinto uccidendo tutti i nemici",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "type": "commonjs",
   "scripts": {
-    "start game": "node index.js",
+    "build": "tsc ./src/index.ts --outDir dist",
+    "start-game": "npm run build && node dist/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Sergio Pugliese",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "@types/node": "^20.10.5",
+    "dotenv": "^16.3.1"
+  }
 }

@@ -1,0 +1,152 @@
+{
+    "room-1": {
+        "name": "Room 1",
+        "exits": [
+            {
+                "destination": "room-2",
+                "position": "east"
+            },
+            {
+                "destination": "room-4",
+                "position": "south"
+            },
+            {
+                "destination": "exit",
+                "position": "west"
+            }
+        ],
+        "objects": [],
+        "monster": "None"
+    },
+    "room-2": {
+        "name": "Room 2",
+        "exits": [
+            {
+                "destination": "room-1",
+                "position": "west"
+            },
+            {
+                "destination": "room-3",
+                "position": "east"
+            },
+            {
+                "destination": "room-5",
+                "position": "south"
+            }
+        ],
+        "objects": [
+            "Golden Egg"
+        ],
+        "monster": "None"
+    },
+    "room-3": {
+        "name": "Room 3",
+        "exits": [
+            {
+                "destination": "room-2",
+                "position": "west"
+            }
+        ],
+        "objects": [
+            "Magic Shield"
+        ],
+        "monster": "None"
+    },
+    "room-4": {
+        "name": "Room 4",
+        "exits": [
+            {
+                "destination": "room-1",
+                "position": "north"
+            }
+        ],
+        "objects": [
+            "Gold Cup"
+        ],
+        "monster": "None"
+    },
+    "room-5": {
+        "name": "Room 5",
+        "exits": [
+            {
+                "destination": "room-2",
+                "position": "north"
+            },
+            {
+                "destination": "room-6",
+                "position": "east"
+            },
+            {
+                "destination": "room-8",
+                "position": "south",
+                "monster": true
+            }
+        ],
+        "objects": [],
+        "monster": {
+            "name": "Medusa",
+            "necessaryWeapon": "Magic Shield"
+        }
+    },
+    "room-6": {
+        "name": "Room 6",
+        "exits": [
+            {
+                "destination": "room-9",
+                "position": "south",
+                "monster": true
+            },
+            {
+                "destination": "room-5",
+                "position": "west"
+            }
+        ],
+        "objects": [],
+        "monster": {
+            "name": "Dracula",
+            "necessaryWeapon": "Pugnale"
+        }
+    },
+    "room-7": {
+        "name": "Room 7",
+        "exits": [
+            {
+                "destination": "room-8",
+                "position": "east"
+            }
+        ],
+        "objects": [
+            "Pugnale"
+        ],
+        "monster": "None"
+    },
+    "room-8": {
+        "name": "Room 8",
+        "exits": [
+            {
+                "destination": "room-7",
+                "position": "west"
+            },
+            {
+                "destination": "room-5",
+                "position": "north"
+            }
+        ],
+        "objects": [
+            "Pergamena"
+        ],
+        "monster": "None"
+    },
+    "room-9": {
+        "name": "Room 9",
+        "exits": [
+            {
+                "destination": "room-6",
+                "position": "north",
+                "princess": true
+            }
+        ],
+        "objects": [],
+        "monster": "None"
+    }
+}
