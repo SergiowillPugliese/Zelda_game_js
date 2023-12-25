@@ -3,6 +3,7 @@ export interface Player {
     inventory: string[];
     alive: boolean;
     lifePoints: number;
+    position: Room;
 }
 
 export interface Room {
@@ -11,6 +12,7 @@ export interface Room {
     exits: Exit[];
     objects: string[];
     monter: string | Monster;
+
 }
 
 export interface Monster {
