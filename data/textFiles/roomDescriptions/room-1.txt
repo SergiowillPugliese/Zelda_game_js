@@ -1,1 +1,11 @@
-sono la stanza numero uno test
+Stanza 1 - L'Entrata Ombrosa
+
+        Ti trovi nell'entrata del castello di CPeria, un luogo che emana 
+        un'atmosfera inquietante e misteriosa. Le pareti di pietra fredda 
+        sono coperte di muschio e vecchi arazzi strappati, e una luce fioca 
+        filtra attraverso le fessure del soffitto alto e decadente. A ovest, 
+        la porta di legno massiccio è l'unico passaggio verso la libertà e 
+        l'unico modo per sfuggire all'oscurità che ti avvolge. Echi di passi 
+        lontani e il freddo alito del destino ti ricordano il tuo eroico 
+        obiettivo: salvare la principessa imprigionata e sconfiggere le forze 
+        del male che infestano questo luogo dimenticato dal tempo.

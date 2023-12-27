@@ -4,6 +4,7 @@ export interface Player {
     alive: boolean;
     lifePoints: number;
     position: Room;
+    princess: boolean;
 }
 
 export interface Room {
@@ -11,8 +12,8 @@ export interface Room {
     name: string;
     exits: Exit[];
     objects: string[];
-    monter: string | Monster;
-
+    monster?: Monster;
+    princess?: boolean;
 }
 
 export interface Monster {
@@ -24,5 +25,4 @@ export interface Exit {
     destination: string;
     position: string;
     monster?: boolean;
-    princess?: boolean;
 }

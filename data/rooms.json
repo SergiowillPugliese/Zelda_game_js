@@ -34,7 +34,7 @@
             }
         ],
         "objects": [
-            "golden egg"
+            "goldenegg"
         ]
     },
     "room-3": {
@@ -46,9 +46,8 @@
             }
         ],
         "objects": [
-            "magic shield"
-        ],
-        "monster": "none"
+            "magicshield"
+        ]
     },
     "room-4": {
         "name": "room 4",
@@ -59,7 +58,7 @@
             }
         ],
         "objects": [
-            "gold cup"
+            "goldencup"
         ]
     },
     "room-5": {
@@ -82,7 +81,7 @@
         "objects": [],
         "monster": {
             "name": "medusa",
-            "necessaryweapon": "magic shield"
+            "necessaryweapon": "magicshield"
         }
     },
     "room-6": {
@@ -90,8 +89,7 @@
         "exits": [
             {
                 "destination": "room-9",
-                "position": "south",
-                "monster": true
+                "position": "south"
             },
             {
                 "destination": "room-5",
@@ -137,10 +135,10 @@
         "exits": [
             {
                 "destination": "room-6",
-                "position": "north",
-                "princess": true
+                "position": "north"
             }
         ],
-        "objects": []
+        "objects": [],
+        "princess": true
     }
 }

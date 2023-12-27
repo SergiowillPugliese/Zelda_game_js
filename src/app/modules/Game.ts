@@ -1,8 +1,8 @@
 import * as fs from 'fs';
-import * as dotenv from 'dotenv';
 import { Room } from './game.interface';
 import { RoomController } from './RoomController';
-import Player from './Player';
+import { Player } from './Player';
+import * as chalk from 'chalk';
 
 export class Game {
     rooms: Room[];
@@ -19,14 +19,10 @@ export class Game {
         this.player = new Player(playerName, this.currentRoom);
         this.roomDescription = RoomController.roomDescription(this.currentRoom);
         return `
-        Ciao ${this.player.playerName}, benvenuto nella tua nuova avventura!
-        Sei appena entrato nel castello dove è imprigionata la principessa Zelda.
-        Il tuo compito, è quello di liberarla e riportarla fuori dal castello.
-        All' interno del castello ci sono dei mostri che dovranno essere uccisi per raggiungere la principessa.
-        Per poterli uccidere, avrai bisogno di armi speciali che puoi trovare all'interno del castello. Corri, presto! La principessa ha bisogno di te!
-
-        ${this.roomDescription}
-        ${this.player.playerDescription()}
+        ${chalk.green('Ciao ' + this.player.playerName + ', benvenuto nella tua nuova avventura!')}
+        
+        ${chalk.yellow(this.roomDescription)}
+        ${chalk.blue(this.player.playerDescription())}
         `
     }
 
@@ -37,7 +33,8 @@ export class Game {
                 ['look', () => this.player.look()],
                 ['move', () => this.currentRoom = this.player.move(value, this.rooms)],
                 ['pick', () => this.currentRoom = this.player.pick(value)],
-                ['drop', () => this.currentRoom = this.player.drop(value)]
+                ['drop', () => this.currentRoom = this.player.drop(value)],
+                ['attack', () => this.currentRoom = this.player.attack()],
             ]
         );
 
@@ -48,21 +45,18 @@ export class Game {
                 if (typeof result === 'string') {
                     return result;
                 }
-
-                return result;
+                return RoomController.roomDescription(result) + this.player.playerDescription();
             } else {
-                return "Game Over";
+                return result;
             }
         } else {
-            console.log("Command not recognized:", command);
-            return "Command not recognized";
+            return "Comando non riconosciuto: " + command;
         }
     }
 
 
 
     initMap(): Room[] {
-        dotenv.config();
         const roomsDataPath = process.env.ROOMS_DATA_PATH;
         if (!roomsDataPath) {
             throw new Error("The ROOMS_DATA_PATH environment variable is not defined.");
