@@ -1,6 +1,6 @@
-import { Room } from "./game.interface";
+import { Room } from "./Game.interface";
 import * as fs from 'fs';
-import * as chalk from 'chalk';
+import chalk from 'chalk';
 
 export class RoomController {
 

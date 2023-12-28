@@ -1,11 +1,10 @@
-import * as chalk from 'chalk';
-import { Room } from './game.interface';
+import chalk from 'chalk';
+import { Room } from './Game.interface';
 import { RoomController } from './RoomController';
 
 export class Player {
     playerName: string;
     inventory: string[] = [];
-    alive: boolean = true;
     position: Room;
     princess = false;
 
@@ -16,6 +15,10 @@ export class Player {
 
     move(direction: string, rooms: Room[]) {
         const newPosition = RoomController.changeRoom(this.position, direction, rooms);
+        if (newPosition === 'exit' && this.princess) {
+            return 'WINGAME'
+        }
+
         if (typeof newPosition === 'string') {
             if (newPosition === 'exit' && !this.princess) {
                 return `
@@ -24,10 +27,10 @@ export class Player {
 
                 ${chalk.yellow(RoomController.roomDescription(this.position))}
                 `;
-            } else {
-                return 'WINGAME'
             }
+            return newPosition;
         }
+
         this.position = newPosition;
         if (this.position.princess) {
             this.princess = true;
@@ -37,7 +40,6 @@ export class Player {
 
     playerDescription() {
         return `
-        Hai ${this.inventory.length} oggetti nello zaino!
         ${this.inventory.length > 0 ? 'I tuoi oggetti sono: ' + this.inventoryStatus() : this.inventoryStatus()} 
         Ecco la tua posizione: ${this.position.name}
         `
@@ -70,9 +72,9 @@ export class Player {
 
     inventoryStatus() {
         if (this.inventory.length > 0) {
-            return this.inventory;
+            return this.inventory.join(', ');
         }
-        return 'Hai un inventario vuoto!';
+        return 'Il tuo inventario è vuoto!';
     }
 
     look() {
@@ -100,7 +102,6 @@ export class Player {
 
                 return this.position;
             } else {
-                this.alive = false;
                 return "ENDGAME";
             }
 

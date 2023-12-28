@@ -1,26 +1,22 @@
 import * as fs from 'fs';
-import { Room } from './game.interface';
+import { Room } from './Game.interface';
 import { RoomController } from './RoomController';
 import { Player } from './Player';
-import * as chalk from 'chalk';
+import chalk from 'chalk';
 
 export class Game {
-    rooms: Room[];
-    currentRoom: Room | string;
-    player: Player;
-    roomDescription: string;
+    rooms: Room[] = [];
+    player!: Player;
+    roomDescription!: string;
 
     constructor() { }
 
     startGame(playerName: string) {
         //creo l'array della mappa da rooms.json
         this.rooms = this.initMap();
-        this.currentRoom = this.rooms[0];
-        this.player = new Player(playerName, this.currentRoom);
-        this.roomDescription = RoomController.roomDescription(this.currentRoom);
+        this.player = new Player(playerName, this.rooms[0]);
+        this.roomDescription = RoomController.roomDescription(this.rooms[0]);
         return `
-        ${chalk.green('Ciao ' + this.player.playerName + ', benvenuto nella tua nuova avventura!')}
-        
         ${chalk.yellow(this.roomDescription)}
         ${chalk.blue(this.player.playerDescription())}
         `
@@ -31,26 +27,27 @@ export class Game {
         const commandMap = new Map<string, () => string | Room>(
             [
                 ['look', () => this.player.look()],
-                ['move', () => this.currentRoom = this.player.move(value, this.rooms)],
-                ['pick', () => this.currentRoom = this.player.pick(value)],
-                ['drop', () => this.currentRoom = this.player.drop(value)],
-                ['attack', () => this.currentRoom = this.player.attack()],
+                ['move', () => this.player.move(value, this.rooms)],
+                ['pick', () => this.player.pick(value)],
+                ['drop', () => this.player.drop(value)],
+                ['attack', () => this.player.attack()],
             ]
         );
 
         const commandFunction = commandMap.get(command);
-        if (typeof commandFunction === 'function') {
+        if (commandFunction) {
             const result = commandFunction();
-            if (this.player.alive) {
-                if (typeof result === 'string') {
-                    return result;
-                }
-                return RoomController.roomDescription(result) + this.player.playerDescription();
-            } else {
+            if (typeof result === 'string') {
                 return result;
             }
+            return RoomController.roomDescription(result) + this.player.playerDescription();
         } else {
-            return "Comando non riconosciuto: " + command;
+            return `
+        Comando non riconosciuto: ${command}.
+        Puoi usare i comandi ${[...commandMap.keys()].join(', ')}.
+
+            ${commandMap.get('look')?.()}
+            `;
         }
     }
 
